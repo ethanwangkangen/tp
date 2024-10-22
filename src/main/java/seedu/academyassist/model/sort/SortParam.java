@@ -3,6 +3,7 @@ package seedu.academyassist.model.sort;
 import static java.util.Objects.requireNonNull;
 
 import seedu.academyassist.commons.util.AppUtil;
+import seedu.academyassist.logic.commands.SortCommand;
 
 /**
  * Represents a parameter for Sort command
@@ -50,4 +51,20 @@ public class SortParam {
             return "name";
         }
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof SortParam)) {
+            return false;
+        }
+
+        SortParam otherSortParam = (SortParam) other;
+        return this.field.equals(otherSortParam.field);
+    }
+
 }

@@ -45,4 +45,19 @@ public class SortCommand extends Command {
         return new CommandResult(String.format(MESSAGE_SUCCESS, sortParam.toString()));
 
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof SortCommand)) {
+            return false;
+        }
+
+        SortCommand otherSortCommand = (SortCommand) other;
+        return this.sortParam.equals(otherSortCommand.sortParam);
+    }
 }
